@@ -22,10 +22,16 @@ function sanitySuccess(success) {
   console.log(success);
   var allPrimaries = success;
   // traverse all of my db entries and append each entry's favorite color to my #colorAnswer div
-  allPrimaries.forEach( function appendToHtml(onePrimary) {
-    var faveColor = onePrimary.favoriteColor;
-    $('#colorAnswer').append('<h1>' + faveColor + '</h1>');
-  });
+  allPrimaries.forEach( function(onePrimary) {
+    renderPrimary(onePrimary);
+    });
+
+  function renderPrimary(onePrimary){
+    var primaryHtml = $("#Deal-Place-Template").html();
+    var primaryTemplate = Handlebars.compile(primaryHtml);
+    var html = primaryTemplate(onePrimary);
+    $("#placeOfDeal").prepend(html);
+  }
 }
 
 
