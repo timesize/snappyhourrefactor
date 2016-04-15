@@ -38,7 +38,7 @@
    ​
            <div class="form-group">
              <label for="title">Place......</label>
-             <input type="text" class="form-control" name="name" placeholder="Name of Business">
+             <input type="text" class="form-control" name="name" placeholder="of Business">
            </div>
            <br>
            <div class="form-group">
@@ -79,19 +79,13 @@
                   <ul class="list-group">
                     <li class="list-group-item">
                       <h4 class="inline-header"></h4>
-                      <span class="location-name" id="{{_id}}">{{name}}{{address}}{{zipCode}} </span>
+                      <span class="location-name" id="{{_id}}">{{name}}   {{address}}   {{zipCode}}
+                        <!-- Indicates a delete action -->
+                        <button type="button" class="btn btn-danger">Delete</button>
+                      </span>
                     </li>
 
-          {{#each location}}
-          <hr>
-          <p>
-            <b>{{deal}}</b>
 
-            <br>
-
-          </p>
-
-          {{/each}}
         </script>
       </div>
 </body>

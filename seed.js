@@ -1,19 +1,19 @@
 var db = require("./models");
 
 var Location = [{
-  name: "Smokies",
+  name: "Smokies ",
   address: "123 Pine St",
   zipCode: 94101,
   deal:"True"
 },
 {
-  name: "Joshua Tree",
+  name: "Joshua Tree ",
   address: "Bush St",
   zipCode: 94101,
   deal:"True"
 },
 {
-  name: "Blue Owl",
+  name: "Blue Owl ",
   address: "2nd Ave",
   zipCode: 94101,
   deal: "True"
