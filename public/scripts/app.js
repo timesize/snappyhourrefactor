@@ -14,6 +14,30 @@ $(document).ready(function() {
   // make an ajax call to my server
   $('#colorQuery').on('submit', function clickHandler(){
   });
+
+  // when a delete button for a location is clicked
+    function handleDeleteLocation(e) {
+      var locationId = $(this).parents('.primary').data('location-id');
+      console.log('someone wants to delete location id=' + locationId );
+
+      $.ajax({
+    url: '/api/primary/' + locationId,
+     method: 'DELETE',
+    success: handleDeleteLocationSuccess
+   });
+ }
+
+ // callback after DELETE /api/albums/:id
+ function handleDeleteLocationSuccess(data) {
+   var deletedLocationId = data._id;
+  console.log('removing the following location from the page:', deletedLocationId);
+   $('div[data-location-id=' + deletedLocationId + ']').remove();
+  }
+
+
+
+
+  
 });
 
 // these are being loaded when this app.js is executed
@@ -38,4 +62,5 @@ function sanitySuccess(success) {
 function sanityError(error) {
   console.log("we have an error. uh oh");
   console.log(error);
+
 }
