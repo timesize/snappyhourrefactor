@@ -52,7 +52,7 @@
            </div>
            <br>
            <div class="form-group">
-             <center label for="title">Deal.......</label>
+             <center label for="title">Deal .......</label>
              <input type="text" class="form-control" name="job" placeholder="Why here?">
            </div>
            <br>
@@ -73,6 +73,24 @@
    <div id="colorAnswer">
 
    </div>
+
+   //handlebars template
+ </form>
+      <div id='placeOfDeal'>
+        <!-- handlebars template -->
+        <script id="Deal-Place" type="text/x-handlebars-template">
+          {{#each location}}
+          <hr>
+          <p>
+            <b>{{deal}}</b>
+            
+            <br>
+
+          </p>
+
+          {{/each}}
+        </script>
+      </div>
 </body>
 
 </html>
