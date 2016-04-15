@@ -16,6 +16,7 @@ app.use(express.static(__dirname + '/public'));
 /*
  * HTML ENDPOINTS
  */
+ var db = require('./models');
 app.get('/', function homepage(req, res) {
   console.log('hello');
   res.sendFile(__dirname + '/views/index.html');
@@ -32,9 +33,9 @@ app.get('/', function homepage(req, res) {
 /* GET ALL Primary DB Entries */
 app.get('/api/primary', function sanity(req, res) {
 
-  database.primary.find( {}, function getAllPrimaries(err, allPrimaries){
+  db.Primary.find( {}, function getAllPrimaries(err, allPrimaries){
     if (err) { return console.log('ERROR', err); }
-
+    console.log(allPrimaries);
     res.json(allPrimaries);
   });
 

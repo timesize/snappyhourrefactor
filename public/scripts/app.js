@@ -5,19 +5,15 @@
 */
 
 $(document).ready(function() {
+  $.ajax({
+    method: "GET",
+    url: "/api/primary",
+    success: sanitySuccess,
+    error: sanityError
+  });
   // make an ajax call to my server
   $('#colorQuery').on('submit', function clickHandler(){
-    $.ajax({
-      method: "GET",
-      url: "api/primary",
-      success: sanitySuccess,
-      error: sanityError
-    });
-
   });
-
-
-
 });
 
 // these are being loaded when this app.js is executed
