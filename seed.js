@@ -21,9 +21,9 @@ var Location = [{
 
 ];
 
-db.Primary.remove({}, function(err, deletedPrimaries){
+db.Location.remove({}, function(err, deletedPrimaries){
 
-  db.Primary.create( Location, function(err, successfulPrimary){
+  db.Location.create( Location, function(err, successfulPrimary){
     if (err) { return console.log('ERROR', err); }
 
     console.log("We have success. See ->", successfulPrimary);

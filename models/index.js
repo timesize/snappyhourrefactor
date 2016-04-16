@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/wdi/project-01");
+mongoose.connect("mongodb://localhost/project-01");
 
-module.exports.Primary = require("./primary.js");
-module.exports.Secondary = require("./secondary.js");
+module.exports.Location = require("./location.js");
+module.exports.Deal = require("./deal.js");

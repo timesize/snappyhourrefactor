@@ -21,7 +21,7 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
 
  <!-- APPLICATION SCRIPTS -->
- <script src="scripts/app.js"></script>
+
 </head>
 
 <body>
@@ -30,7 +30,7 @@
      <div class="row">
        <div class="col-md-8 col-md-offset-2">
    ​
-         <form class="form-inline" id="Snappy Hour">
+         <form class="form-inline" id="Snappy-Hour">
 
            <p>
              Half price drinks, for double rent regions
@@ -38,22 +38,22 @@
    ​
            <div class="form-group">
              <label for="title">Place......</label>
-             <input type="text" class="form-control" name="name" placeholder="of Business">
+             <input type="text" class="form-control" name="place" placeholder="of Business">
            </div>
            <br>
            <div class="form-group">
              <label for="title">Address..</label>
-             <input type="text" class="form-control" name="year" placeholder="What to gMap">
+             <input type="text" class="form-control" name="address" placeholder="What to gMap">
            </div>
            <br>
            <div class="form-group">
              <label for="title">ZIP code.</label>
-             <input type="text" class="form-control" name="major" placeholder="5 Digits">
+             <input type="text" class="form-control" name="zipCode" placeholder="5 Digits">
            </div>
            <br>
            <div class="form-group">
              <center label for="title">Deal ........</label>
-             <input type="text" class="form-control" name="job" placeholder="Why here?">
+             <input type="text" class="form-control" name="deal" placeholder="Why here?">
            </div>
            <br>
 
@@ -79,6 +79,7 @@
                   <ul class="list-group">
                     <li class="list-group-item">
                       <h4 class="inline-header"></h4>
+
                       <span class="location-name" id="{{_id}}">{{name}}   {{address}}   {{zipCode}}
                         <!-- Indicates an update action -->
                         <button type="button" class="btn btn-warning">Update</button>
@@ -90,6 +91,7 @@
 
         </script>
       </div>
+      <script src="scripts/app.js"></script>
 </body>
 
 </html>
