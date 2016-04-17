@@ -3,6 +3,7 @@
   people can see this, be careful!
 
 */
+//Reading info
   $.ajax({
     method: "GET",
     url: "/api/location",
@@ -15,6 +16,7 @@
     var data = $('#Snappy-Hour').serialize();
     console.log(data, "Serizalized data");
 
+//Posting aka creating info
    $.ajax({
     method: "POST",
     url: "/api/location",
@@ -37,23 +39,23 @@ function postSuccess(data) {
   });
 }
   // when a delete button for a location is clicked
- //    function handleDeleteLocation(e) {
- //      var locationId = $(this).parents('.location').data('location-id');
- //      console.log('someone wants to delete location id=' + locationId );
- //
- //      $.ajax({
- //    url: '/api/location/' + locationId,
- //     method: 'DELETE',
- //    success: handleDeleteLocationSuccess
- //   });
- // }
+    function handleDeleteLocation(e) {
+      var locationId = $(this).parents('.location').data('location-id');
+      console.log('someone wants to delete location id=' + locationId );
 
- // callback after DELETE /api/albums/:id
- // function handleDeleteLocationSuccess(data) {
- //   var deletedLocationId = data._id;
- //  console.log('removing the following location from the page:', deletedLocationId);
- //   $('div[data-location-id=' + deletedLocationId + ']').remove();
- //  }
+      $.ajax({
+    url: '/api/location/' + locationId,
+     method: 'DELETE',
+    success: handleDeleteLocationSuccess
+   });
+ }
+
+ // callback after DELETE /api/location/:id
+ function handleDeleteLocationSuccess(data) {
+   var deletedLocationId = data._id;
+  console.log('removing the following location from the page:', deletedLocationId);
+   $('div[id=' + deletedLocationId + ']').remove();
+  }
 
 
 
