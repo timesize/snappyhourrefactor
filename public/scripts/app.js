@@ -3,6 +3,29 @@
   people can see this, be careful!
 
 */
+$('#placeOfDeal').on('click', '.deleteLocation', handleDeleteLocation);
+
+function handleDeleteLocation(){
+  var locationId = $(this).parents('.location').data('location-id');
+  console.log('we are deleting this location' + locationId);
+  $.ajax({
+    method: 'DELETE',
+    url: '/api/location/' + locationId,
+    success: handleDeleteLocationSuccess,
+    error: errorDelete
+  });
+}
+
+function handleDeleteLocationSuccess(data){
+  var deletedLocationId = data._id;
+  console.log('the following location is being deleted: ', deletedLocationId);
+  $('[data-location-id=' + deletedLocationId + ']').remove();
+}
+
+function errorDelete(err){
+  console.log('error has occurred in deleting: ', err);
+}
+
 //Reading info
   $.ajax({
     method: "GET",
@@ -38,25 +61,41 @@ function postSuccess(data) {
     error: sanityError
   });
 }
-  // when a delete button for a location is clicked
-    function handleDeleteLocation(e) {
-      var locationId = $(this).parents('.location').data('location-id');
-      console.log('someone wants to delete location id=' + locationId );
+ //  // when a delete button for a location is clicked
+ //    function handleDeleteLocation(e) {
+ //      var locationId = $(this).parents('.location').data('location-id');
+ //      console.log('someone wants to delete location id=' + locationId );
+ //
+ //      $.ajax({
+ //    url: '/api/location/' + locationId,
+ //     method: 'DELETE',
+ //    success: handleDeleteLocationSuccess
+ //   });
+ // }
+ //
+ // // callback after DELETE /api/location/:id
+ // function handleDeleteLocationSuccess(data) {
+ //   var deletedLocationId = data._id;
+ //  console.log('removing the following location from the page:', deletedLocationId);
+ //   $('div[location-id=' + deletedLocationId + ']').remove();
+ //  }
 
-      $.ajax({
-    url: '/api/location/' + locationId,
-     method: 'DELETE',
-    success: handleDeleteLocationSuccess
-   });
- }
 
- // callback after DELETE /api/location/:id
- function handleDeleteLocationSuccess(data) {
-   var deletedLocationId = data._id;
-  console.log('removing the following location from the page:', deletedLocationId);
-   $('div[id=' + deletedLocationId + ']').remove();
-  }
 
+
+  //  function handleDelete(context) {
+  //     tempId = context;
+  //     var locationId = $('#deleteButton').data('location-id');
+  //     console.log(locationId, " location id is on left");
+   //
+  //       $.ajax({
+  //       method: 'DELETE',
+  //         url: '/api/location/' + locationId,
+  //         success: renderNew,
+  //         error: deleteError
+  //       });
+  //  //  console.log('removing the following location from the page:', locationId);
+  //  }
 
 
 

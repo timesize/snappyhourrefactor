@@ -12,15 +12,12 @@
  <link rel="stylesheet" href="styles/styles.css">
 
  <!-- VENDOR SCRIPTS -->
- <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous">
-   < /script
-
-   < script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" >
- </script>
-
+ <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+ <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
 
  <!-- APPLICATION SCRIPTS -->
+
 
 </head>
 
@@ -33,7 +30,7 @@
          <form class="form-inline" id="Snappy-Hour">
 
            <p>
-             Half price drinks, for double rent regions
+             Half price drinks, in double rent regions
            </p>
    ​
            <div class="form-group">
@@ -79,12 +76,11 @@
                   <ul class="list-group">
                     <li class="list-group-item">
                       <h4 class="inline-header"></h4>
-
-                      <span class="location-name" data-location-id="{{_id}}">
+                      <span class="location" data-location-id="{{_id}}">
                         <!-- Indicates an update action -->
                         <button type="button" class="btn btn-warning">Update</button>
                         <!-- Indicates a delete action -->
-                        <button type="button" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-danger deleteLocation">Delete</button>
                         {{name}}   {{address}}   {{zipCode}}
                       </span>
                     </li>
@@ -92,7 +88,7 @@
 
         </script>
       </div>
-      <script src="scripts/app.js"></script>
+<script src="scripts/app.js"></script>
 </body>
 
 </html>

@@ -44,8 +44,6 @@ app.get('/api/location', function sanity(req, res) {
 
 
 // POST //
-
-
 app.post('/api/location', function (req, res){
 console.log(req.body);
   var newLocation = new db.Location({
@@ -56,17 +54,21 @@ console.log(req.body);
   });
   newLocation.save(function (err, savedLocation){
     if (!err) {
-
       res.json(savedLocation);
     } else {
       console.log("Couldn't save new data", err);
     }
   });
 });
-
-
 // END OF POST  //
 
+// DELETE //
+
+app.delete('/api/location/:locationId', function(req, res){
+  db.Location.findOneAndRemove({_id: req.params.locationId}, function(err, foundLocation) {
+    res.json(foundLocation);
+  });
+});
 
 
 /**********
