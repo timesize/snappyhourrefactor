@@ -78,10 +78,12 @@
                       <h4 class="inline-header"></h4>
                       <span class="location" data-location-id="{{_id}}">
                         <!-- Indicates an update action -->
-                        <button type="button" class="btn btn-warning">Update</button>
+                        <button type="button" class="btn btn-warning" id= "updateButton">Update</button>
                         <!-- Indicates a delete action -->
-                        <button type="button" class="btn btn-danger deleteLocation">Delete</button>
-                        {{name}}   {{address}}   {{zipCode}}
+                        <button type="button" data-location-id="{{_id}}" class="btn btn-danger deleteLocation">Delete</button>
+                        <span class="location-name"> {{name}}</span>
+                        <span class="location-address"> {{address}}</span>
+                        <span class="location-zipCode"> {{zipCode}}</span>
                       </span>
                     </li>
 

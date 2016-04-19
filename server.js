@@ -70,6 +70,12 @@ app.delete('/api/location/:locationId', function(req, res){
   });
 });
 
+//update
+app.put('/api/location/:locationId', function(req, res){
+  db.Location.findOne({_id: req.params.locationId}, function(err, foundLocation) {
+    res.json(foundLocation);
+  });
+});
 
 /**********
  * SERVER *
