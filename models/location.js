@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-// var Deal = require('./deal.js');
+var Deal = require('./deal.js');
 //location schema
 var LocationSchema = new Schema({
   name: String,

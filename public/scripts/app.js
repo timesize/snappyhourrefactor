@@ -32,6 +32,7 @@ $("#placeOfDeal").on('click', '#updateButton', function(e){
   $(".location-name").html("<input type='text' id='locationNameUpdated'>");
   $(".location-address").html("<input type='text' id='locationAddressUpdated'>");
   $(".location-zipCode").html("<input type='text' id='locationZipCodeUpdated'>");
+  $(".location-deal").html("<input type='text' id='locationDealUpdated'>");
   $("#updateButton").html("<button type='btn btn-danger' class='saveChanges'> Save </button>");
 });
 $("#placeOfDeal").on('click', '#saveChanges', function(e){
@@ -40,6 +41,7 @@ $("#placeOfDeal").on('click', '#saveChanges', function(e){
   var name = $("#locationNameUpdated").val();
   var address = $("#locationAddressUpdated").val();
   var zipCode = $("#locationZipCodeUpdated").val();
+  var deal = $("#locationDealUpdated").val();
   console.log(name, address, zipCode);
   console.log(tempId);
   $.ajax({
