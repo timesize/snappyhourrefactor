@@ -26,18 +26,18 @@ function errorDelete(err){
   console.log('error has occurred in deleting: ', err);
 }
 
-//Updating right here
+//UPDATING right here
 $("#placeOfDeal").on('click', '#updateButton', function(e){
   console.log(e, "E");
-  $(".location-name").html("<input type='text' id='locationUpdated'>");
+  $(".location-name").html("<input type='text' id='locationNameUpdated'>");
   $(".location-address").html("<input type='text' id='locationAddressUpdated'>");
   $(".location-zipCode").html("<input type='text' id='locationZipCodeUpdated'>");
-  $("#updateButton").html("<button type='btn btn-danger' class='saveChanges'> Save Changes </button>");
+  $("#updateButton").html("<button type='btn btn-danger' class='saveChanges'> Save </button>");
 });
 $("#placeOfDeal").on('click', '#saveChanges', function(e){
   console.log(e, "E");
   var tempId = $('.deleteButton').data('location-id');
-  var name = $("#locationUpdated").val();
+  var name = $("#locationNameUpdated").val();
   var address = $("#locationAddressUpdated").val();
   var zipCode = $("#locationZipCodeUpdated").val();
   console.log(name, address, zipCode);
