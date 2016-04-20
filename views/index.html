@@ -84,14 +84,14 @@
                         <button type="button" data-location-id="{{_id}}" class="btn btn-danger deleteLocation">Delete</button>
 
                         <form class="form-inline" id="updateForm">
-                          <input type='text' id='locationNameUpdated'ß>
+                          <input type='text' id='locationNameUpdated'>
                           <button type='btn btn-danger' id='saveUpdate' class='saveChanges'> Save </button>
                         </form>
 
                         <span class="location-name"> {{name}}</span>
                         <span class="location-address"> {{address}}</span>
                         <span class="location-zipCode"> {{zipCode}}</span>
-                        <span class="location-deal"> {{deal}}</span>
+                        <span class="location-deal"> {{deal[0].price}}</span>
                       </span>
                     </li>
 

@@ -7,7 +7,7 @@ var LocationSchema = new Schema({
   name: String,
   address: String,
   zipCode: String,
-  deal: String
+  deal: [Deal.schema]
 });
 
 

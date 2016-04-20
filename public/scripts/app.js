@@ -61,6 +61,7 @@ $("#placeOfDeal").on('click', '#updateForm', function(e){
 
 function renderNew(data) {
   console.log("blh blah ", data);
+
 }
 function updateError(data) {
   console.log(data, "update error");
