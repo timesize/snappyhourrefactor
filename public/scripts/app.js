@@ -109,7 +109,7 @@ $("#placeOfDeal").on('click', '#updateForm', function(e){
 
 function renderNew(data) {
   console.log("blh blah ", data);
-
+  // location.reload();
 }
 function updateError(data) {
   console.log(data, "update error");

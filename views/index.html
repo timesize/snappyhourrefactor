@@ -104,10 +104,16 @@
                 <div class="panel-footer">
 
                   <div class="panel-footer">
+                    <form class="form-inline" id="updateForm">
+                       <input type='text'id='locationNameUpdated'>
+                       <button type='btn btn-danger'
+                       id='saveUpdate' class='saveChanges'> Save </button>
+                       </form>
+
                     <button class="btn btn-warning add-deal">Add Deal</button>
                     <button class="btn btn-default update-location">Edit</button>
                     <button class="btn btn-danger delete-location">Delete</button>
-                    <button class="btn btn-info save-location hidden">Save Changes</button>
+                    <button class="btn btn-warning save-location hidden">Save Changes</button>
                   </div>
 
                 </div>
@@ -129,7 +135,7 @@
 
                     <!-- Text input-->
                     <div class="form-group">
-                      <label class="col-md-4 control-label" for="size">Deal</label>
+                      <label class="col-md-4 control-label" for="size">What's new?</label>
                       <div class="col-md-4">
                         <input id="locationDeal" name="locationDeal" type="text" placeholder="" class="form-control input-md" required="">
                       </div>
@@ -141,7 +147,7 @@
 
                 <div class="modal-footer">
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" id="saveDeal">Save changes</button>
+                  <button type="button" class="btn btn-warning" id="saveDeal">Save</button>
                 </div>
 
               </div>
