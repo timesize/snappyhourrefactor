@@ -28,6 +28,7 @@ function errorDelete(err){
 
 //UPDATING right here
 $("#placeOfDeal").on('click', '#updateButton', function(e){
+  $('#updateForm').css('display' , 'block');
   console.log(e, "E");
   $(".location-name").html("<input type='text' id='locationNameUpdated'>");
   $(".location-address").html("<input type='text' id='locationAddressUpdated'>");
@@ -35,9 +36,10 @@ $("#placeOfDeal").on('click', '#updateButton', function(e){
   $(".location-deal").html("<input type='text' id='locationDealUpdated'>");
   $("#updateButton").html("<button type='btn btn-danger' class='saveChanges'> Save </button>");
 });
-$("#placeOfDeal").on('click', '#saveChanges', function(e){
+$("#placeOfDeal").on('click', '.saveChanges', function(e){
   console.log(e, "E");
-  var tempId = $('.deleteButton').data('location-id');
+  var locationId = $(this).parents('.location').data('location-id');
+  console.log('we are updating this location' + locationId);
   var name = $("#locationNameUpdated").val();
   var address = $("#locationAddressUpdated").val();
   var zipCode = $("#locationZipCodeUpdated").val();
@@ -46,8 +48,8 @@ $("#placeOfDeal").on('click', '#saveChanges', function(e){
   console.log(tempId);
   $.ajax({
     method: 'PUT',
-    url: '/api/location/' + tempId,
-    data:{name:name, zipCode: zipCode, address:address},
+    url: '/api/location/' + locationId,
+    data:{name: name, zipCode: zipCode, address: address},
     success: renderNew,
     error: updateError
   });
@@ -55,10 +57,10 @@ $("#placeOfDeal").on('click', '#saveChanges', function(e){
 
 
 function renderNew(data) {
-  console.log(data);
+  console.log("blh blah ", data);
 }
 function updateError(data) {
-  console.log(data);
+  console.log(data, "update error");
 }
 //Reading info
   $.ajax({

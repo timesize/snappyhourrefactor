@@ -9,3 +9,6 @@ submit {
   padding: 20px 20px 20px 20px:
 
 }
+#updateForm {
+  display: none;
+}
