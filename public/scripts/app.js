@@ -27,16 +27,17 @@ function errorDelete(err){
 }
 
 //UPDATING right here
-$("#placeOfDeal").on('click', '#updateButton', function(e){
-  $('#updateForm').css('display' , 'block');
-  console.log(e, "E");
-  $(".location-name").html("<input type='text' id='locationNameUpdated'>");
-  $(".location-address").html("<input type='text' id='locationAddressUpdated'>");
-  $(".location-zipCode").html("<input type='text' id='locationZipCodeUpdated'>");
-  $(".location-deal").html("<input type='text' id='locationDealUpdated'>");
-  $("#updateButton").html("<button type='btn btn-danger' class='saveChanges'> Save </button>");
-});
-$("#placeOfDeal").on('click', '.saveChanges', function(e){
+// $("#placeOfDeal").on('click', '#updateButton', function(e){
+  // $('#updateForm').css('display' , 'block');
+//   console.log(e, "E");
+//   $(".location-name").html("<input type='text' id='locationNameUpdated'>");
+//   $(".location-address").html("<input type='text' id='locationAddressUpdated'>");
+//   $(".location-zipCode").html("<input type='text' id='locationZipCodeUpdated'>");
+//   $(".location-deal").html("<input type='text' id='locationDealUpdated'>");
+//   $("#updateButton").html("<button type='btn btn-danger' class='saveChanges'> Save </button>");
+// });
+$("#placeOfDeal").on('click', '#updateForm', function(e){
+  e.preventDefault();
   console.log(e, "E");
   var locationId = $(this).parents('.location').data('location-id');
   console.log('we are updating this location' + locationId);
@@ -44,12 +45,14 @@ $("#placeOfDeal").on('click', '.saveChanges', function(e){
   var address = $("#locationAddressUpdated").val();
   var zipCode = $("#locationZipCodeUpdated").val();
   var deal = $("#locationDealUpdated").val();
-  console.log(name, address, zipCode);
-  console.log(tempId);
+  console.log(name);
+
+
   $.ajax({
     method: 'PUT',
     url: '/api/location/' + locationId,
-    data:{name: name, zipCode: zipCode, address: address},
+    // data:{name: name, zipCode: zipCode, address: address},
+    data: {name: name},
     success: renderNew,
     error: updateError
   });

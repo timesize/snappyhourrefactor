@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true}));
  */
 
 app.get('/', function homepage(req, res) {
-  console.log('hello');
+  // console.log('hello');
   res.sendFile(__dirname + '/views/index.html');
 });
 
@@ -72,8 +72,12 @@ app.delete('/api/location/:locationId', function(req, res){
 
 //update
 app.put('/api/location/:locationId', function(req, res){
-  db.Location.findOne({_id: req.params.locationId}, function(err, foundLocation) {
-    res.json(foundLocation);
+  var locId = req.params.locationId;
+  db.Location.findById(locId, function(err, foundLocation) {
+    foundLocation.name = req.body.name;
+    foundLocation.save(function(){
+      res.json(foundLocation);
+    });
   });
 });
 
