@@ -7,9 +7,9 @@ var LocationSchema = new Schema({
   name: String,
   address: String,
   zipCode: String,
-  deal: [Deal.schema]
+  // deal: [Deal.schema],
 });
-
+//[Deal.schema]
 
 var Location = mongoose.model('Location', LocationSchema);
 

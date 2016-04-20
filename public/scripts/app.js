@@ -28,7 +28,7 @@ function errorDelete(err){
 
 //UPDATING right here
 // $("#placeOfDeal").on('click', '#updateButton', function(e){
-  // $('#updateForm').css('display' , 'block');
+//   $('#updateForm').css('display' , 'block');
 //   console.log(e, "E");
 //   $(".location-name").html("<input type='text' id='locationNameUpdated'>");
 //   $(".location-address").html("<input type='text' id='locationAddressUpdated'>");

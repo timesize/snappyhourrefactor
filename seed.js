@@ -1,22 +1,22 @@
 var db = require("./models");
 
 var Location = [{
-  name: "Smokies ",
-  address: "123 Pine St",
-  zipCode: 94101,
-  deal:"True"
+  name: "Rickhouse ",
+  address: "246 Kearny Street",
+  zipCode: 94108,
+  // deal:"true"
 },
 {
-  name: "Joshua Tree ",
-  address: "Bush St",
+  name: "Murphy's Pub ",
+  address: "217 Kearny Street",
   zipCode: 94101,
-  deal:"True"
+  // deal:"True"
 },
 {
-  name: "Blue Owl ",
-  address: "2nd Ave",
-  zipCode: 94101,
-  deal: "True"
+  name: "The Irish Bank Bar ",
+  address: "10 Mark Lane",
+  zipCode: 94108,
+  // deal: "True"
 }
 
 ];

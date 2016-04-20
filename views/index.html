@@ -85,13 +85,16 @@
 
                         <form class="form-inline" id="updateForm">
                           <input type='text' id='locationNameUpdated'>
+                          <input type='text' id='locationAddressUpdated'>
+                          <input type='text' id='locationZipCodeUpdated'>
+
                           <button type='btn btn-danger' id='saveUpdate' class='saveChanges'> Save </button>
                         </form>
 
                         <span class="location-name"> {{name}}</span>
                         <span class="location-address"> {{address}}</span>
                         <span class="location-zipCode"> {{zipCode}}</span>
-                        <span class="location-deal"> {{deal[0].price}}</span>
+                        <span class="location-deal"> {{deal}}</span>
                       </span>
                     </li>
 
