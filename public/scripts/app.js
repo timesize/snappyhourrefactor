@@ -3,7 +3,51 @@
   people can see this, be careful!
 
 */
-$('#placeOfDeal').on('click', '.deleteLocation', handleDeleteLocation);
+
+$('#placeOfDeal').on('click', '.add-deal', handleNewDealClick);
+
+$('#saveDeal').on('click', handleNewDealSubmit);
+
+function handleNewDealClick(e){
+  console.log('trying to add a deal');
+  var thisLocationId = $(this).closest('.location').data('location-id');
+  console.log('id:', thisLocationId);
+  $('#dealModal').data('location-id', thisLocationId);
+  $('#dealModal').modal();
+}
+
+function handleNewDealSubmit(event){
+  event.preventDefault();
+  var $modal = $('#dealModal');
+  var $dealField = $modal.find('#locationDeal');
+
+  var dataToPost = {
+    deal: $dealField.val()
+  };
+  var locationId = $modal.data('locationId');
+  console.log('received locationDeal: ', locationId, 'for location with id', locationId);
+
+  var dealPostToServer = '/api/location/' + locationId + '/deal';
+  $.post(dealPostToServer, dataToPost, function (data) {
+    console.log('recieved data from post to /deal', data);
+    //clear form
+    $dealField.val('');
+
+    //close modal
+    $modal.modal('hide');
+    $.get('/api/location/' + locationId, + function(data) {
+      $('[data-location-id=' + locationId + ']').remove();
+      renderPrimary(data);
+    });
+  }).error(function(err) {
+    console.log('post to /api/location/:locationId/deals had an error', err);
+  });
+
+}
+
+
+
+$('#placeOfDeal').on('click', '.delete-location', handleDeleteLocation);
 
 function handleDeleteLocation(){
   var locationId = $(this).parents('.location').data('location-id');
@@ -52,7 +96,11 @@ $("#placeOfDeal").on('click', '#updateForm', function(e){
     method: 'PUT',
     url: '/api/location/' + locationId,
     // data:{name: name, zipCode: zipCode, address: address},
-    data: {name: name},
+    data: {
+      name: name,
+      zipCode: zipCode,
+      address: address
+    },
     success: renderNew,
     error: updateError
   });

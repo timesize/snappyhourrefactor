@@ -32,9 +32,8 @@ app.get('/', function homepage(req, res) {
  * API ENDPOINTS
  */
 /* GET ALL Primary DB Entries */
-app.get('/api/location', function sanity(req, res) {
-
-  db.Location.find( {}, function getAllPrimaries(err, allPrimaries){
+app.get('/api/location', function (req, res) {
+  db.Location.find( {}, function (err, allPrimaries){
     if (err) { return console.log('ERROR', err); }
     console.log(allPrimaries);
     res.json(allPrimaries);
@@ -49,8 +48,7 @@ console.log(req.body);
   var newLocation = new db.Location({
     name: req.body.place,
     address: req.body.address,
-    zipCode: req.body.zipCode,
-    deal: req.body.deal
+    zipCode: req.body.zipCode
   });
   newLocation.save(function (err, savedLocation){
     if (!err) {
@@ -60,6 +58,18 @@ console.log(req.body);
     }
   });
 });
+
+app.post('/api/location/:locationId/deal', function(req, res){
+  db.Location.findById(req.params.locationId, function(err, foundLocation){
+    var newDeal = new db.Deal(req.body);
+    foundLocation.deal.push(newDeal);
+    foundLocation.save(function(err, savedLocation) {
+      console.log('new deal created', newDeal);
+      res.json(newDeal);
+    });
+  });
+});
+
 // END OF POST  //
 
 // DELETE //

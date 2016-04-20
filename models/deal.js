@@ -5,7 +5,7 @@ var DealSchema = new Schema({
   // Day: String,
   // timeBegin: Number,
   // timeEnd: Number,
-  price: String
+  deal: String,
 });
 
 var Deal = mongoose.model('Deal', DealSchema);

@@ -21,6 +21,24 @@ var Location = [{
 
 ];
 
+var dealList = [];
+
+// dealList.push({
+//   deal: 'beer shot combos'
+// });
+// dealList.push({
+//   deal: 'dollar off drafts'
+// });
+dealList.push({
+  deal: 'half price beer'
+});
+
+Location.forEach(function(location){
+  location.deal = dealList;
+});
+
+
+
 db.Location.remove({}, function(err, deletedPrimaries){
 
   db.Location.create( Location, function(err, successfulPrimary){
